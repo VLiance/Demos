@@ -1,0 +1,4 @@
+;Register Cwc before using a .cwmake
+ -c HelloWorld.cpp -o HelloWorld.o -O2 -std=c++11 |
+ >
+ -o _out/(wPlatform)/App.exe HelloWorld.o

@@ -1,0 +1,9 @@
+ -{_wLib_GZE}= VLiance/GZE/v1.0
+ > 
+ -L src_(Demo)/ -e src_(Demo)/MainEntry.cw -o obj/cw/ -#Obj=>{CwObj} |
+ >
+-c {CwObj} -o obj/cpp/cwObj/{wPlatform}/ -I obj/cw/
+ >
+-#Build {_wLib_GZE} -#To obj/cpp/GZE/{wPlatform}/LibGZE/  -std=c++11 -I obj/cw/
+>
+-o obj/cpp/ -#To _out/{wPlatform}/App.* -std=c++11 -lgdi32

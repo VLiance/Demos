@@ -1,0 +1,13 @@
+;Add GZE lib (Auto download if not present)
+ -{wLib_GZE}= VLiance/GZE v1.0
+ -{wLib_GZE}= VLiance/GZE v1.0
+ >
+;Build project files
+ -c src/ -o obj/{wPlatform}/ 
+ >
+;Build GZE lib depending on what project have included for GZE
+-#Build {wLib_GZE} -#To obj/{wPlatform}/LibGZE/ -std=c++11
+ >
+ ;Link
+-o obj/{wPlatform}/ -#To _out/{wPlatform}/App.* -std=c++11
+

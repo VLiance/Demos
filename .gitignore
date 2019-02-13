@@ -1,6 +1,3 @@
-# Prerequisites
-*.d
-
 # Compiled Object files
 *.slo
 *.lo
@@ -30,3 +27,24 @@
 *.exe
 *.out
 *.app
+*.rar
+
+# Compiled
+*.obj
+*.o
+*.d
+*.dump
+
+
+
+#Dir
+Demo_Example/
+obj/
+out/
+_out/
+Tcp/
+old/
+xxx/
+bin/
+old/
+*.cwcfg

@@ -1,0 +1,3 @@
+;Register Cwc before using a .cwmake
+;Build Project with the LibRT toolchain
+-#Run Build.cwc -{wCompiler}= VLianceTool/LibRT 

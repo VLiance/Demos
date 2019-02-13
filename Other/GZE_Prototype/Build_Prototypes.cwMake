@@ -1,0 +1,2 @@
+;Register Cwc before using a .cwmake
+(CWayv) -p "{wDir}../../../../Lib/VLiance/GZE/GZE-0.2.0/src/Lib_GZ/" -o "{wDir}Lib_GZ.js"

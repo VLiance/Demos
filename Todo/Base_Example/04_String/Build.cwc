@@ -1,0 +1,10 @@
+ -{wLib_GZE}= VLiance/GZE v1.0
+ >
+ -c src/ -o obj/{wPlatform}/  -DD_GZE_CPP_ONLY
+ >
+-#Build {wLib_GZE} -#To obj/{wPlatform}/LibGZE/ -std=c++11  -DD_GZE_CPP_ONLY
+ >
+-c src/ -o obj/{wPlatform}/  -DD_GZE_CPP_ONLY
+>
+-o obj/{wPlatform}/ -#To _out/{wPlatform}/App.* -std=c++11
+

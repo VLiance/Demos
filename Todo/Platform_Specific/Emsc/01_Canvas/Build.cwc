@@ -1,0 +1,10 @@
+ -{wLib_GZE}= Honera/GZE v1.0
+ >
+ -c src/ -o obj/{wPlatform}/  -O2
+ >
+-#Build {wLib_GZE} -#To obj/{wPlatform}/LibGZE/ -O2 -std=c++11
+ >
+-c src/ -o obj/{wPlatform}/ -O2
+>
+-o obj/{wPlatform}/ -#To _out/{wPlatform}/App.* -std=c++11 -O2
+
