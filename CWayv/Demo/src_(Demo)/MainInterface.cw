@@ -1,19 +1,21 @@
 package  { 
 	
+	import GZ.Sys.Interface.Interface;
+	
+	
 	//import GZ.Gfx.Object;
 //	import GZ.Gfx.Screen.Redraw;
 	
-	import GZ.Sys.Window;
+	import GZ.Sys.Interface.Window;
 	//import GZ.File.RcImg;
 //	import GZ.Gfx.Root;
 	
-	import GZ.Gfx.Interface;
 	
 	//import GZ.Gfx.Clip.Img;
-//	import GZ.Gfx.Clip;
+	import GZ.Gfx.Clip;
 	
 	
-//	import Demo.Screen.DemoRoll;
+	import Demo.Screen.DemoRoll;
 	//import Demo.Screen.FpsCount;
 	//import Demo.Screen.DemoText;
 	
@@ -45,7 +47,7 @@ package  {
 		use Window.eWinClick;
 		use Window.eWinBorder;
 		
-//		public var oDemo : Clip;
+		public var oDemo : Clip;
 	//	public var oFps : FpsCount;
 		
 //		public var oImg : Img;
@@ -88,8 +90,8 @@ package  {
 		
 		Debug.fTrace("---WinStart");
 		
-		//Debug.fTrace1("---DemoRoll");
-		//	oDemo = new DemoRoll(this);
+		Debug.fTrace("---DemoRoll");
+		oDemo = new DemoRoll(this);
 					
 		//		Debug.fTrace1("---FpsCount");
 		//	oFps = new FpsCount(this, oItf.nFrameWidth - 150, 30);

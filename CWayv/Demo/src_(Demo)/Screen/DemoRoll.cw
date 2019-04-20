@@ -5,11 +5,13 @@ package  {
 	import GZ.File.RcImg;
 	import GZ.Gfx.Root;
 
-	import GZ.Gfx.Interface;
+	import GZ.Sys.Interface.Interface;
 	import GZ.Gfx.Clip;
 
-	import GZ.Math;
+	import GZ.Base.Math.Math;
 	import GZ.Gfx.Clip.Img;
+	
+	import Demo.TestResult;
 
 	/**
 	 * @author Maeiky
@@ -29,6 +31,15 @@ package  {
 			Clip(_oParent, 0.0, 0.0);
 			
 			//Debug.fTrace1("Static " + DemoRoll.sTest + " : " + DemoRoll.nInterger);
+			
+			
+			
+			<cpp>
+				gzEase<gzFloat> _nEase = 5.5f;
+				_nEase = 7.5;
+				_nEase = _nEase + 5.5f;
+			</cpp>
+			
 			
  
 			//! ----------------------------------------------------------------------------
@@ -71,21 +82,38 @@ package  {
 			
 			
 			//oImg = new Img(this, 400.0, 300.0, "C:/Transform.png", true);
-		//	oImg = new Img(this, 400.0, 300.0, "RcEngine:/Transform.png", true);
+		//	oImg = new Img(this, 400.0, 300.0, "RcEngine|Transform.png", true);
 		//	oImg = new Img(this, 400.0, 300.0, "Exe:/Transform.png", true);
-			oImg = new Img(this, 400.0, 300.0, "Exe:/Tf.png", true);
-			/*
-			oImg.WnWidth(0.5);
-			oImg.WnHeight(0.5);
-			oImg.TnWidth(1.0);
-			oImg.TnHeight(1.0);
-			oImg.EnWidth(75);
-			oImg.EnHeight(75);
-			*/
+			oImg = new Img(this, 400.0, 300.0, "Exe|Rc/Tf.png", true);
 			
-		//	aaasBugHere
+			oImg.vPos.fSetSpeed(10);
+			oImg.vPos.fSetLimit(99900);
 			
-		//	floowingnOanal
+			//vPos.fSetSpeed(-100);
+		//	vPos.fSetLimit(99900);
+			
+			
+			oImg.vPos.nX = 100;
+			oImg.vPos.nY = 250;
+			
+			
+			oImg.vPos.nX.fTo(700);
+			
+			oImg.vSize.nWidth = 1.5;
+			oImg.vSize.nHeight = 0.5;
+			//oImg.vSize = 0.5;
+			
+			oImg.vColor.nRed = -1.0;
+			
+			oImg.vRot.nRoll = 15;
+			//oImg.vRot.nRoll = 10;
+			//oImg.vRot.nYaw = 2.5;
+			
+		//	oImg.WnX(250);
+		//	oImg.WnY(250);
+	
+
+	
 			/*
 			oImg.TnYaw(3.0 * Math.nPI);
 			oImg.EnYaw(150);
@@ -98,10 +126,16 @@ package  {
 		}
 
 		override public function fUpdateParentToChild():Void {
+			oImg.vRot.nPitch = oImg.vRot.nPitch + 0.005;
 			//!Updated each frame, parents before
-			//Debug.fTrace1("aaa ");
+			//Debug.fTrace("fUpdateParentToChild ");
 	//		oImg.MnRoll(0.005);
-			
+			// oImg.WnX(oImg.nAttX + 0.5);
+			/*
+		<cpp>
+		printf("\nAAAAAA");
+		</cpp>
+			*/
 		}
 
 		override public function fUpdateChildToParent():Void {

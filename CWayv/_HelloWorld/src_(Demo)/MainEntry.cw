@@ -9,7 +9,7 @@ package  {
 	
 	public class MainEntry extends EntryPoint {
 	
-		override public function fMain():Void {
+		public function MainEntry():Int {
 
 			Debug.fTrace("C~: Hello, World!");
 			

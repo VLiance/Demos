@@ -25,10 +25,8 @@ import Demo.Test;
 		public var oInterface : MainInterface;
 		
 		
-			
+		public function MainEntry():Int {
 
-		override public function fMain():Void {
-		
 
 		//	dTest = fTestDelegate;
 			//C~ 
@@ -47,7 +45,6 @@ import Demo.Test;
 				Debug.fTrace("Val : "  + _nVal );
 			}
 			
-			
 			qaShort.fShort(dComapre);
 			
 			forEach(var _nVal : Int  in  qaShort){
@@ -55,15 +52,14 @@ import Demo.Test;
 			}
 			
 			
-						
-
-			
 			//!TODO[Create a new Windows with GZE demos]
 			oThread = new MainInterface();
 			
 			Debug.fTrace("*******************");
 			dTest(5.0,5.0);
 			Debug.fTrace("*******************");
+			
+			return 1;
 		}
 		
 /*
