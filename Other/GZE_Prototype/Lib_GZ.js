@@ -1,11 +1,28 @@
+package GZ.Base.Thread{
+	public extension ThreadMsg extends Class{
+		public function ThreadMsg();
+		public function fRun();
+	}
+}
+package GZ.Base.Result{
+	public result Result_Search extends Result_Index{
+		public function Result_Search();
+	}
+}
+package GZ{
+	public class GZ extends Class{
+		public function GZ();
+	}
+}
 package GZ.Debug{
 	public overclass Debug extends Class{
-		private function fConsole(_sValue: String);
+		pure public function fConsole(_sValue: String);
 		public function fTrace(_sValue: String);
 		public function fPass(_sValue: String);
 		public function fWarning(_sValue: String);
 		public function fError(_sValue: String);
 		public function fFatal(_sValue: String);
+		public function fInfo(_sValue: String);
 		public function Debug();
 	}
 }
@@ -14,15 +31,19 @@ package GZ.Base{
 		public function Class();
 	}
 }
-package GZ.Base.Thread{
-	public extension ThreadMsg extends Class{
-		public function ThreadMsg();
-		public function fRun();
+package GZ.Base.Result{
+	public result Result {
+		public function Result();
 	}
 }
-package GZ.Base{
-	public class Dim extends Vec3{
-		public function Dim(_nWidth: Float =  0, _nHeight: Float =  0, _nLength: Float =  0);
+package GZ.Base.Result{
+	public result Result_Int extends Result{
+		public function Result_Int();
+	}
+}
+package GZ.Base.Result{
+	public result Result_Index extends Result{
+		public function Result_Index();
 	}
 }
 package GZ.Base.Math{
@@ -53,6 +74,8 @@ package GZ.Base.Math{
 package GZ.Base{
 	public class Vec3 extends Vec2{
 		public function Vec3(_nX: Float =  0, _nY: Float =  0, _nZ: Float =  0);
+		public function fCross(_oOther: Vec3);
+		public function fRevCross(_oOther: Vec3);
 		public function fRotate(_oQuat: Quaternion);
 	}
 }
@@ -74,6 +97,11 @@ package GZ.Base{
 package GZ.Base{
 	public class Vec2 extends Class{
 		public function Vec2(_nX: Float =  0, _nY: Float =  0);
+	}
+}
+package GZ.Base{
+	public class Dim extends Vec3{
+		public function Dim(_nWidth: Float =  0, _nHeight: Float =  0, _nLength: Float =  0);
 	}
 }
 package GZ.Base{
@@ -99,6 +127,26 @@ package GZ.Base{
 package GZ.Base{
 	public class Perspective extends Class{
 		public function Perspective();
+	}
+}
+package GZ.Base.Pod{
+	public vector Color {
+		public function Color(_nRed: Number =  0, _nGreen: Number =  0, _nBlue: Number =  0, _nAlpha: Number =  0);
+	}
+}
+package GZ.Base.Pod{
+	public vector Point {
+		public function Point(_nX: Number =  0, _nY: Number =  0, _nZ: Number =  0);
+	}
+}
+package GZ.Base.Pod{
+	public vector Rotation {
+		public function Rotation(_nRoll: Number =  0, _nYaw: Number =  0, _nPitch: Number =  0);
+	}
+}
+package GZ.Base.Pod{
+	public vector Size {
+		public function Size(_nWidth: Number =  1, _nHeight: Number =  1, _nLength: Number =  1);
 	}
 }
 package GZ.Base.Poly{
@@ -145,7 +193,7 @@ package GZ.Base{
 	}
 }
 package GZ.Base{
-	public vector Rect extends Class{
+	public vector Rect {
 		public function Rect(_nX: Number, _nY: Number, _nWidth: Number, _nHeight: Number);
 	}
 }
@@ -165,6 +213,15 @@ package GZ.Base.Thread{
 		public function fLoop();
 	}
 }
+package GZ.Sys{
+	public overclass System extends Class{
+		public function System();
+		public function fSleep(_nMilliseconds: UInt =  1);
+		public function fIni(_nInstance: UIntX, _sCommandLine: String, _nShowCmd: UInt);
+		public function fDetectGpu();
+		public function fExit();
+	}
+}
 package GZ.Base.Thread{
 	public class ThreadExt extends Class{
 		public function ThreadExt();
@@ -172,7 +229,7 @@ package GZ.Base.Thread{
 }
 package GZ{
 	public extension EntryPoint extends Thread{
-		public function EntryPoint();
+		riding public function EntryPoint();
 		public function fMain();
 	}
 }
@@ -180,20 +237,17 @@ package GZ.Sys{
 	public overclass MainThreadPlatformMsg extends Class{
 		public function MainThreadPlatformMsg();
 		public function fManageMessage();
-		public function fRegisterContext(_gFrom: Gate, _vFrame: Rect, hPos: HoldEnum);
+		public function fRegisterContext(_gFrom: Gate, _oWindow: Window);
 	}
 }
-package GZ.Sys{
+package GZ.Sys.Interface{
 	public overclass Context extends Window{
 		public function Context(_oInterface: Interface, _sWindowName: String, _nFrameWidth: UInt, _nFrameHeight: UInt, _bTransparent: Bool =  false, _nBgColor: Int =  0xFFFFFFFF);
 		public function fCreate(_nPosX: Int, _nPosY: Int, _nWinWidth: UInt, _nWinHeight: UInt, _nStart: HoldEnum =  eWinState.Normal, _bGpuDraw: Bool =  true, _bResizable: Bool =  false, _bDragAndDrop: Bool =  false, _bVisible: Bool =  true);
 		public function fFrameStart();
-		public function fContextRegistred();
-		public function fCreateNow();
+		public function fContextRegistred(_nHandleId: UIntX, _nWinHandleId: UIntX);
+		public function fCreateContext();
 		private function fReceiveMessage(_sMessage: String);
-		public function fAddLink(_oLink: ContextLink);
-		public function fManageMessage();
-		public function fManageMessageOp();
 		public function fSendData(_nOtherWinId: UInt);
 		public function fIniPixelZone();
 		public function drawPixel();
@@ -209,7 +263,8 @@ package GZ.Sys{
 		public function fFrameEnd();
 		public function fGetPixelArray();
 		public function fGetKey(_oKey: Key);
-		public function fCompleteContext(_oInfo: ContextCreated);
+		public function fIniPixelDrawZone();
+		public function fGpuBlit();
 		public function fBlitComplete(_nDrawZoneAdr: UIntX =  0);
 	}
 }
@@ -231,9 +286,9 @@ package GZ.Gpu{
 		public function fGetVersion();
 	}
 }
-package GZ.Sys{
+package GZ.Sys.Interface{
 	public extension Window extends Class{
-		public function Window(_oInterface: Interface, _sWindowName: String, _nFrameWidth: UInt, _nFrameHeight: UInt, _bTransparent: Bool =  false, _nBgColor: Int =  0xFFFFFFFF);
+		public function Window(_oInterface: Interface, _sName: String, _nFrameWidth: UInt, _nFrameHeight: UInt, _bTransparent: Bool =  false, _nBgColor: Int =  0xFFFFFFFF);
 		private function fReceiveMessage(_sMessage: String);
 		public function fCreate(_nPosX: Int, _nPosY: Int, _nWinWidth: UInt, _nWinHeight: UInt, _nStart: HoldEnum =  eWinState.Normal, _bResizable: Bool =  false, _bDragAndDrop: Bool =  false, _bVisible: Bool =  true);
 		public function fFrameStart();
@@ -249,7 +304,6 @@ package GZ.Sys{
 		public function fSendData(_nOtherWinId: UInt);
 		public function fIniPixelZone();
 		public function drawPixel();
-		public function fBlit();
 		public function fKeyIsDown(_nKeyVal: Int);
 		public function fClear();
 		public function fCpuVSyncOnGpu();
@@ -264,7 +318,7 @@ package GZ.Sys{
 		public function fGetKey(_oKey: Key);
 	}
 }
-package GZ.Gfx{
+package GZ.Sys.Interface{
 	public extension Interface extends FrameRate{
 		public function Interface(_oThreadItf: ThreadItf, _sWindowName: String, _nWeakWidth: UInt, _nWeakHeight: UInt, _bTransparent: Bool =  false, _nBgColor: Int =  0xFFFFFFFF);
 		public function fCreateInterface(_nPosX: Int =  Window.nPosCenter, _nPosY: Int =  Window.nPosCenter, _hWinState: HoldEnum =  eWinState.Normal);
@@ -317,9 +371,6 @@ package GZ.Gfx{
 package GZ.Gfx{
 	public extension Attribute extends Root{
 		public function Attribute(_oParent: Root);
-		public function WnX(_nVal: Float);
-		public function WnY(_nVal: Float);
-		public function WnZ(_nVal: Float);
 		public function fApplyColor();
 		public function fApplyPos();
 	}
@@ -366,9 +417,9 @@ package GZ.Gfx{
 package GZ.Gfx{
 	public class Triangle extends Class{
 		public function Triangle(_oPtA: Array<Dynamic>, _oPtB: Array<Dynamic>, _oPtC: Array<Dynamic>, _aPtSA: Array<Dynamic>, _aPtSB: Array<Dynamic>, _aPtSC: Array<Dynamic>);
-		public function fFindXFromLinePt(_oPt1: Pt, _oPt2: Pt, _nY: Float);
-		public function fFindAngle(_oPt1: Pt, _oPt2: Pt);
-		public function fDraw(_oPtA: Pt, _oPtB: Pt, _oPtC: Pt, _aPtSA: RtuMap, _aPtSB: RtuMap, _aPtSC: RtuMap, _nPosX: Int, _nPosY: Int, _aPixelArray: Array<Dynamic>, _nSWidth: UInt, _nSHeight: UInt, _oSource: Object, _nX_Start: Int, _nX_End: Int, _nY_Start: Int, _nY_End: Int, _nRsAlpha: UInt, _nRsBrRed: UInt, _nRsBrGreen: UInt, _nRsBrBlue: UInt, _nRsRevRed: UInt, _nRsRevBlue: UInt, _nRsRevGreen: UInt, _nOfRevRed: UInt, _nOfRevBlue: UInt, _nOfRevGreen: UInt, _bNothingRight: Bool =  false );
+		pure public function fFindXFromLinePt(_oPt1: Pt, _oPt2: Pt, _nY: Float);
+		pure public function fFindAngle(_oPt1: Pt, _oPt2: Pt);
+		pure public function fDraw(_oPtA: Pt, _oPtB: Pt, _oPtC: Pt, _aPtSA: RtuMap, _aPtSB: RtuMap, _aPtSC: RtuMap, _nPosX: Int, _nPosY: Int, _aPixelArray: Array<Dynamic>, _nSWidth: UInt, _nSHeight: UInt, _oSource: Object, _nX_Start: Int, _nX_End: Int, _nY_Start: Int, _nY_End: Int, _nRsAlpha: UInt, _nRsBrRed: UInt, _nRsBrGreen: UInt, _nRsBrBlue: UInt, _nRsRevRed: UInt, _nRsRevBlue: UInt, _nRsRevGreen: UInt, _nOfRevRed: UInt, _nOfRevBlue: UInt, _nOfRevGreen: UInt, _bNothingRight: Bool =  false );
 	}
 }
 package GZ.Gpu.GpuObj{
@@ -387,13 +438,11 @@ package GZ.File{
 		Destructor function destructor();
 	}
 }
-package GZ.Sys{
-	public overclass System extends Class{
-		public function System();
-		public function fSleep(_nMilliseconds: UInt =  1);
-		public function fIni(_nInstance: UIntX, _sCommandLine: String, _nShowCmd: UInt);
-		public function fDetectGpu();
-		public function fExit();
+package GZ.File{
+	public class Image extends Class{
+		pure public function fOpen(_oRc: RcImg);
+		pure public function fDelete(_oRc: RcImg);
+		public function Image();
 	}
 }
 package GZ.File{
@@ -404,16 +453,17 @@ package GZ.File{
 		public function fSetStaticMemData(_aSrcMemData: Array<Dynamic>, _nSize: UIntX);
 	}
 }
-package GZ.Sys{
+package GZ.File{
 	public overclass File extends Class{
-		public function File();
+		public function File(_sFile: String);
+		public function fGetSystemExePath();
 		public function fCreateDirectory(_sFolder: String);
 		public function fIsFileExist(_sFile: String);
 		public function fLauch(_sFile: String, _sArguments: String);
-		public function fGetExePath();
+		public function fExtractPath(_sPath: String);
 		public function fGetFullPath(_sDrive: String, _sPath: String);
 		public function fLoadFileFromVDrive(_oRc: Resource);
-		public function fLoadFile(_oRc: Resource, _sFullPath: String);
+		public function fLoadFile(_oRc: Resource);
 	}
 }
 package GZ.Gpu.GpuObj{
@@ -541,49 +591,6 @@ package GZ.Input{
 		public function fIsDown(_hKey: HoldEnum);
 	}
 }
-package GZ.Sys.Message{
-	public class ContextCreated extends ThreadMsg{
-		public function ContextCreated(_nHandleId: UInt, _gContextHandle: Gate, _nDrawZoneAdr: UIntX, _bGpuDraw: Bool =  false);
-		public function fRun();
-	}
-}
-package GZ.Sys{
-	public overclass ContextHandle extends Class{
-		public function ContextHandle(_oLink: ContextLink);
-		public function fUpdate();
-		public function fCreateContextHandle();
-		public function fIniPixelDrawZone();
-		public function fBlit();
-		public function fGpuBlit();
-	}
-}
-package GZ.Sys.Message{
-	public overclass ContextLink extends ThreadMsg{
-		public function ContextLink(_sName: String, _oPos: Pt, _oDimention: Dim, _bGpuDraw: Bool =  false);
-		public function fRun();
-		public function fCreateContext();
-		public function fIniDrawZone();
-		public function fSendMsg(_oMsg: ThreadMsg);
-	}
-}
-package GZ.Sys.Message{
-	public class MousePos extends ThreadMsg{
-		public function MousePos();
-		public function fRun();
-	}
-}
-package GZ.Sys.Message{
-	public class Blit extends ThreadMsg{
-		public function Blit();
-		public function fRun();
-	}
-}
-package GZ.Sys.Message{
-	public class BlitComplete extends ThreadMsg{
-		public function BlitComplete(_nDrawZoneAdr: UIntX =  0);
-		public function fRun();
-	}
-}
 package GZ.File{
 	public class Embed extends Class{
 		public function Embed(_sToPath: String);
@@ -606,17 +613,17 @@ package GZ.File{
 		public function fClose();
 	}
 }
-package GZ.Sys{
-	public extension FileGetter extends Class{
-		public function FileGetter(_sFolder: String);
-		public function fGetNextFile();
-		public function fIsDirectory();
-	}
-}
 package GZ.Gfx.Clip{
 	public class Img extends Shape{
 		public function Img(_oParent: Root, _nX: Float, _nY: Float, _oRc: RcImg, _bCenter: Bool =  true, _nCenterX: Int =  0, _nCenterY: Int =  0, _bSmoothBorder: Bool =  true, _bDrawLine: Bool =  false, _oSrcRegion: Poly4 =  0, _nWidth: UInt =  0, _nHeight: UInt =  0, _oPts: Poly4 =  0);
 		public function fUpdateChildToParent();
+	}
+}
+package GZ.File{
+	public extension FileGetter extends Class{
+		public function FileGetter(_sFolder: String);
+		public function fGetNextFile();
+		public function fIsDirectory();
 	}
 }
 package GZ.File.Font{
@@ -625,10 +632,12 @@ package GZ.File.Font{
 	}
 }
 package GZ.File{
-	public class Image extends Class{
-		pure public function fOpen(_oRc: RcImg);
-		pure public function fDelete(_oRc: RcImg);
-		public function Image();
+	public overclass Font extends Class{
+		public function fGetCharData(_oCharData: CharData);
+		public function fOpen(_oRc: RcFont);
+		public function fDelete(_oRc: RcFont);
+		public function fGetKernAdvance(_oRc: RcFont, _nCh1: Int, _nCh2: Int);
+		public function Font();
 	}
 }
 package GZ.File{
@@ -638,15 +647,6 @@ package GZ.File{
 		public function fCpuLoad();
 		public function fGetKernAdvance(_nCh1: Int, _nCh2: Int);
 		Destructor function destructor();
-	}
-}
-package GZ.Wrap{
-	public class Font extends Class{
-		pure public function fGetCharData(_oCharData: CharData);
-		pure public function fOpen(_oRc: RcFont);
-		pure public function fDelete(_oRc: RcFont);
-		pure public function fGetKernAdvance(_oRc: RcFont, _nCh1: Int, _nCh2: Int);
-		public function Font();
 	}
 }
 package GZ.File{
@@ -659,8 +659,8 @@ package GZ.File{
 }
 package GZ.Wrap{
 	public class Image extends Class{
-		pure public function fOpen(_oRc: RcImg);
-		pure public function fDelete(_oRc: RcImg);
+		public function fOpen(_oRc: RcImg);
+		public function fDelete(_oRc: RcImg);
 		public function Image();
 	}
 }
@@ -966,11 +966,6 @@ package GZ.Gpu.ShaderModel.GzModel{
 		public function fLoad();
 		public function fPod(_oPod: TestPod2);
 		public function fDraw();
-	}
-}
-package GZ.Sys{
-	public Invalid Debug2 extends Class{
-		public function Debug2();
 	}
 }
 package GZ.Sys{

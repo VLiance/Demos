@@ -7,11 +7,11 @@ package  {
 	import GZ.File.RcFont;
 	import GZ.Gfx.Root;
 
-	import GZ.Gfx.Interface;
+	import GZ.Sys.Interface.Interface;
 	import GZ.Gfx.Clip;
 	import GZ.Gfx.Clip.Text;
 
-	import GZ.Math;
+	import GZ.Base.Math.Math;
 
 	import GZ.Gfx.Clip.Img;
 	import GZ.Base.Quaternion;
@@ -31,23 +31,37 @@ package  {
 		public function DemoText( _oParent : Root ):Void {
 			Clip(_oParent, _oParent.oItf.nHalfFrameWidth,  _oParent.oItf.nHalfFrameHeight);
 			
-			/*
-			Debug.fTrace1("----LoadFont ----");
+			
+			Debug.fTrace("----LoadFont ----");
 			
 		//	var _oFont : RcFont = new RcFont( "c:/extra_fonts/ProggyClean.ttf");
-			var _oFont : RcFont = new RcFont( "c:/extra_fonts/ProggyTiny.ttf", 10);
+			var _oFont : RcFont = new RcFont( "Exe|Rc/Fonts/ProggyTiny.ttf", 10);
 		//	var _oFont : RcFont = new RcFont("c:/extra_fonts/DroidSans.ttf");
 		
 		
 		
 		
-			Debug.fTrace1("--------");
+			Debug.fTrace("--------");
 			_oFont.fCpuLoad();
 			
-			oImg = new Img(this, 10.0, 10.0, _oFont, true);
-			oImg.WnRed(1.0);
+			oImg = new Img(this, 100.0, 100.0, _oFont, true);
 			
-			*/
+			//	oImg.vPos.fSetSpeed(10);
+			//oImg.vPos.fSetLimit(99900);
+			
+			//vPos.fSetSpeed(-100);
+		//	vPos.fSetLimit(99900);
+			
+			
+		//	oImg.vPos.nX = 256;
+		//	oImg.vPos.nY = 256;
+			
+			
+			oImg.vColor.nRed = 1.0;
+			Debug.fTrace("--Finish-");
+		//	oImg.WnRed(1.0);
+			
+			
 			/*
 			oImg.WnWidth(0.5);
 			oImg.WnHeight(0.5);
@@ -76,22 +90,27 @@ package  {
 		
 			//sssssssssf
 			
-			
-			
-			/*
-		oLetter = new Letter(this, _oFont, -350.0, 50.0, 65);
-		oLetter.WnRed(1.0);
+		//oLetter = new Letter(this, _oFont, -350.0, 50.0, 65);
+		oLetter = new Letter(this, _oFont, 100.0, 100.0, 65);
+			//		oLetter.vPos.nX = 256;
+			//oLetter.vPos.nY = 256;
+		oLetter.vColor.nRed = 1.0;
+		oLetter.vSize.nHeight = 5.0;
+		oLetter.vSize.nWidth = 5.0;
 		
 		
+
 		//oText = new Text(this, _oFont,  oItf.nHalfFrameWidth * -1 + 20.0, -0.0, "Im a genius Testaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa12345678910");
 		oText = new Text(this, _oFont,  oItf.nHalfFrameWidth * -1 + 20.0, -0.0, "Im a genius Testaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa12345678910");
+		//oText = new Text(this, _oFont,  255, 255, "Im a genius Testaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa12345678910");
+
+		oText.vColor.nRed = 1.0;
 		
 		
 		oText.oCurrRange.fClear();
 		oText.oCurrRange.fAdd("Yeah");
 		
-		*/
-		
+	
 		
 		/*	
 		Debug.fTrace1("-oText-");
@@ -130,13 +149,17 @@ package  {
 
 
 
+		
+		
 		override public function fUpdateParentToChild():Void {
+		
+
 			nAdd++;
-			
 			oText.oCurrRange.fClear();
 			oText.oCurrRange.fAdd("Test: " + nAdd);
-			
-/*
+			return; //disable
+		
+			/*
 			var _nMouseX : Float = oItf.oWindow.nMouseX - oItf.nHalfFrameWidth;
 			var _nMouseY : Float = oItf.oWindow.nMouseY - oItf.nHalfFrameHeight;
 

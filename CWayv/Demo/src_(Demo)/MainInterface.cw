@@ -17,7 +17,7 @@ package  {
 	
 	import Demo.Screen.DemoRoll;
 	//import Demo.Screen.FpsCount;
-	//import Demo.Screen.DemoText;
+	import Demo.Screen.DemoText;
 	
 	/*
 	import Demo.Screen.DemoPerspective;
@@ -91,7 +91,8 @@ package  {
 		Debug.fTrace("---WinStart");
 		
 		Debug.fTrace("---DemoRoll");
-		oDemo = new DemoRoll(this);
+		//oDemo = new DemoRoll(this);
+		oDemo = new DemoText(this);
 					
 		//		Debug.fTrace1("---FpsCount");
 		//	oFps = new FpsCount(this, oItf.nFrameWidth - 150, 30);
