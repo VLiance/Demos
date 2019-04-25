@@ -1,0 +1,9 @@
+;Register Cwc before using a .cwmake
+>
+-{_sOpt}="O2"
+>
+-#Run Build.cwc -{wToolchain}= VLianceTool/WebRT
+>
+-o obj/{wPlatform}/ -#To _out/{wPlatform}/FreeType.bc
+>
+-o obj/{wPlatform}/ -#To _out/{wPlatform}/FreeType.so

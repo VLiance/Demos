@@ -21,6 +21,8 @@ package  {
 		
 		
 		public static var nInterger : Int;
+		public  var nTime : Int = 0;
+		
 		public static var nFloat : Float;
 		public static var sTest : String = "Hello";
 
@@ -97,15 +99,27 @@ package  {
 			oImg.vPos.nY = 250;
 			
 			
-			oImg.vPos.nX.fTo(700);
+			oImg.vPos.nX.fTo(500);
 			
-			oImg.vSize.nWidth = 1.5;
+			oImg.vSize.nWidth = 0.5;
 			oImg.vSize.nHeight = 0.5;
 			//oImg.vSize = 0.5;
+			
+			
+			oImg.vSize.nWidth.fTo(1.5);
+			oImg.vSize.nHeight.fTo(1.5);
+			oImg.vSize.fSetSpeed(15);
+			oImg.vSize.fSetLimit(99900);
+			
 			
 			oImg.vColor.nRed = -1.0;
 			
 			oImg.vRot.nRoll = 15;
+			oImg.vColor.nRed.fTo(1.0);
+			oImg.vColor.nAlpha = 0.1;
+			oImg.vColor.nAlpha.fTo(1.0);
+			oImg.vColor.fSetSpeed(5);
+			oImg.vColor.fSetLimit(99900);
 			//oImg.vRot.nRoll = 10;
 			//oImg.vRot.nYaw = 2.5;
 			
@@ -127,6 +141,13 @@ package  {
 
 		override public function fUpdateParentToChild():Void {
 			oImg.vRot.nPitch = oImg.vRot.nPitch + 0.005;
+			oImg.vRot.nRoll = oImg.vRot.nRoll + 0.008;
+			nTime++;
+			if(nTime > 250){
+				//oImg.vColor.nGreen.fTo(-1.0);
+				oImg.vColor.nRed.fTo(0.0);
+				oImg.vColor.fSetSpeed(30);
+			}
 			//!Updated each frame, parents before
 			//Debug.fTrace("fUpdateParentToChild ");
 	//		oImg.MnRoll(0.005);

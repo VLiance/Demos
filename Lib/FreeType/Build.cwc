@@ -1,0 +1,4 @@
+
+-c Freetype_GZE/FreeType.cpp -o obj/{wPlatform}/FreeType.o -I Freetype_GZE/ -Wno-deprecated-register
+>
+-o obj/{wPlatform}/ -#To _out/{wPlatform}/FreeType.a
