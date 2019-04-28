@@ -2,5 +2,5 @@
 >
 -{_sOpt}="O2"
 >
--#Run Build.cwc -{wToolchain}= VLianceTool/WebRT
--{vPreloadRc}="--preload-file _out/{wPlatform}_{_sOpt}/Rc/@Rc/"
+-#Run Build.cwc -{_wToolchain}= "VLianceTool/WebRT"
+-{vPreloadRc}="--preload-file _out/{_sPlatform}_{_sOpt}/Rc/@Rc/"
