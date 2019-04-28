@@ -1,7 +1,7 @@
 ;Register Cwc before using a .cwmake
 -{wToolchain}= VLianceTool/LibRT 
 >
--c src/glfw/triangle-glfw.c -o obj/{wPlatform}/main.o
+-c src/glfw/triangle-glfw.c -o obj/{_sPlatform}/main.o
 -I src/glfw/
 -I ../GLFW/include/
 -I src/

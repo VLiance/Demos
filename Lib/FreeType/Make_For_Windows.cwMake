@@ -2,4 +2,4 @@
 >
 -{_sOpt}="O2"
 >
--#Run Build.cwc -{wToolchain}= VLianceTool/LibRT
+-#Run Build.cwc -{_wToolchain}= VLianceTool/LibRT

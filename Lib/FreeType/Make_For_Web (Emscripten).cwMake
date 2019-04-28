@@ -2,8 +2,8 @@
 >
 -{_sOpt}="O2"
 >
--#Run Build.cwc -{wToolchain}= VLianceTool/WebRT
+-#Run Build.cwc -{_wToolchain}= "VLianceTool/WebRT"
 >
--o obj/{wPlatform}/ -#To _out/{wPlatform}/FreeType.bc
+-o obj/{_sPlatform}/ -#To _out/{_sPlatform}/FreeType.bc
 >
--o obj/{wPlatform}/ -#To _out/{wPlatform}/FreeType.so
+-o obj/{_sPlatform}/ -#To _out/{_sPlatform}/FreeType.so
