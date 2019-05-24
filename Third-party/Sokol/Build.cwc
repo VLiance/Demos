@@ -17,4 +17,4 @@
 >
 -c src/glfw/flextgl/flextGL.c -o obj/{_sPlatform}/flextGL.o -D_GLFW_WIN32 |
 >
--o obj/{_sPlatform}/ -#To _out/{_sPlatform}/App.* -std=c++11 -lgdi32 -lopengl32
+-o obj/{_sPlatform}/ -#To _out/{_sPlatform}/App.* -std=c++11 -lgdi32 -lopengl32 
