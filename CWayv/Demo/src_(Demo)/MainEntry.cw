@@ -19,7 +19,7 @@ import Demo.Test;
 	//	private var aInt2d : Array<Int, 2>;
 	
 
-		private var qaShort : QArray<Int, 1>;
+	//	private var qaShort : QArray<Int, 1>;
 		private var dComapre : Delegate<fQueueDelegate> = fQueueDelegate;
 		private var dTest : Delegate<fTestDelegate> = fTestDelegate;
 		public var oInterface : MainInterface;
@@ -34,6 +34,7 @@ import Demo.Test;
 			Debug.fTrace("4444----------- ");
 
 			Debug.fTrace(" - Test QueueArray / Delegates -");
+			/*
 			qaShort.fPush(70);
 			qaShort.fPush(50);
 			qaShort.fPush(99);
@@ -46,11 +47,11 @@ import Demo.Test;
 			}
 			
 			qaShort.fShort(dComapre);
-			
+	
 			forEach(var _nVal : Int  in  qaShort){
 				Debug.fTrace("SortVal : "  + _nVal );
 			}
-			
+					*/
 			
 			//!TODO[Create a new Windows with GZE demos]
 			oThread = new MainInterface();
@@ -80,6 +81,14 @@ import Demo.Test;
 				return false;
 			}
 		}
+		
+		destructor  {
+			<cpp>
+				printf("\nDestroy");
+				
+			</cpp>
+		}
+	
 
 
 	}

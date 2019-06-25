@@ -28,6 +28,7 @@ package  {
 
 		
 		public var oImg : Img;
+
 		
 		public function DemoRoll( _oParent : Root ):Void {
 			Clip(_oParent, 0.0, 0.0);
@@ -159,6 +160,20 @@ package  {
 			*/
 		}
 
+				
+		<cpp_class_h>
+		inline virtual void ViewAddInst() const{
+			printf("\nAdd Inst DemoRooll %d ", nSharedCount);
+		}
+		inline virtual void ViewSubInst() const {
+			printf("\nSubInst DemoRooll %d ", nSharedCount);
+		}
+		</cpp_class_h>
+		
+		
+		
+		
+		
 		override public function fUpdateChildToParent():Void {
 			//!Updated each frame, childs before
 		}
