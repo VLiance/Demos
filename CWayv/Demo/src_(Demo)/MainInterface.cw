@@ -65,8 +65,8 @@ package  {
 	
 			Debug.fTrace("MainInterface!!!!");
 			
-			bGpuDraw = false;
-			//bGpuDraw = true;
+			//bGpuDraw = false;
+			bGpuDraw = true;
 			
 			
 			//!Make window transparent (Render or CPU)
@@ -94,7 +94,7 @@ package  {
 		
 		Debug.fTrace("---DemoRoll");
 		oDemo = new DemoRoll(this);
-	//	oDemo = new DemoText(this);
+		//oDemo = new DemoText(this);
 					
 		//		Debug.fTrace1("---FpsCount");
 		//	oFps = new FpsCount(this, oItf.nFrameWidth - 150, 30);
