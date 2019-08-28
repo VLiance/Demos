@@ -63,10 +63,10 @@ package  {
 			//Debug = new Debug();
 			//Lib_GZ::Sys::Debug::SetInst(oMain->thread) = Lib_GZ::Sys::Debug::Get(oMain->thread)->New(oMain.get()).get();
 	
-			Debug.fTrace("MainInterface!!!!");
+			Debug.fTrace("!!!!!!!!!!!!!MainInterface!!!!");
 			
-			//bGpuDraw = false;
-			bGpuDraw = true;
+			bGpuDraw = false;
+			//bGpuDraw = true;
 			
 			
 			//!Make window transparent (Render or CPU)
@@ -91,6 +91,7 @@ package  {
 			//-------------------------------
 		
 		Debug.fTrace("---WinStart");
+		
 		
 		Debug.fTrace("---DemoRoll");
 		oDemo = new DemoRoll(this);

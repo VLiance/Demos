@@ -25,6 +25,8 @@ package  {
 		public var oImg : Img;
 		public var oLetter : Letter;
 		public var oText : Text;
+		public var oText2 : Text;
+		public var oTitle : Text;
 		public var nAdd : Int = 0;
 		
 		
@@ -110,8 +112,19 @@ package  {
 		oText.oCurrRange.fClear();
 		oText.oCurrRange.fAdd("Yeah");
 		
-	
 		
+	//	oText2 = new Text(this, _oFont,  oItf.nHalfFrameWidth * -1 + 20.0, 10.0, "Im a genius Testaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa12345678910");
+	//			oText2.vColor.nRed = 1.0;
+		
+		
+		
+		oTitle = new Text(this, _oFont,    oItf.nHalfFrameWidth * -1 + 20.0,120.0, "RayMarching Project");
+
+		oTitle.vColor.nRed = 0.0;
+		oTitle.vColor.nBlue = 0.0;
+		oTitle.vColor.nGreen = 0.0;
+		oTitle.vSize.nHeight = 2.0;
+		oTitle.vSize.nWidth = 2.0;
 		/*	
 		Debug.fTrace1("-oText-");
 			oText = new Text(this, _oFont,  oItf.nHalfFrameWidth * -1 + 20.0, -0.0, "Im a genius Testaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa12345678910");
@@ -156,7 +169,8 @@ package  {
 
 			nAdd++;
 			oText.oCurrRange.fClear();
-			oText.oCurrRange.fAdd("Test: " + nAdd);
+			oText.oCurrRange.fAdd("Testing: " + nAdd);
+
 			return; //disable
 		
 			/*
