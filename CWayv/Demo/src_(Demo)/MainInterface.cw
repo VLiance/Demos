@@ -93,8 +93,8 @@ package  {
 		
 		
 		override public function fLoadShader():Bool {
-			//oGzShModel = new GzShModel_Quad();
-			oGzShModel = new GzShModel_Shadertoy();
+			oGzShModel = new GzShModel_Quad();
+			//oGzShModel = new GzShModel_Shadertoy();
 			return true;
 		}
 		
