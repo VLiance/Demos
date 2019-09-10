@@ -19,6 +19,12 @@ package  {
 	//import Demo.Screen.FpsCount;
 	import Demo.Screen.DemoText;
 	
+	import GZ.Gpu.ShaderModel.GzModel.GzShModel;
+	import GZ.Gpu.ShaderModel.GzModel.GzShModel_Quad;
+	import GZ.Gpu.ShaderModel.GzModel.GzShModel_Raymarching;
+	import GZ.Gpu.ShaderModel.GzModel.GzShModel_Shadertoy;
+	
+	
 	/*
 	import Demo.Screen.DemoPerspective;
 	import Demo.Screen.DemoSideScroller.DemoSideScroller;
@@ -48,6 +54,8 @@ package  {
 		use Window.eWinBorder;
 		
 		public var oDemo : Clip;
+	//	public var oGzShModel : GzShModel;
+		
 	//	public var oFps : FpsCount;
 		
 //		public var oImg : Img;
@@ -82,7 +90,19 @@ package  {
 			fCreateInterface(300,100);
 		}
 		
+		
+		
+		override public function fLoadShader():Bool {
+			//oGzShModel = new GzShModel_Quad();
+			oGzShModel = new GzShModel_Shadertoy();
+			return true;
+		}
+		
+		
 		override public function fWinStart():Void {
+			
+			
+
 			Debug.fPass(" ---- Interface C~ initialised ----");
 			//!The windows was created
 			//-------------------------------
