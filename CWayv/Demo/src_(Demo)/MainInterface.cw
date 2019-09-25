@@ -86,6 +86,7 @@ package  {
 			//, eWinBorder.Normal, true, true, true, _bCpuGraphique);
 		
 			
+			
 			//fCreateInterface();
 			fCreateInterface(300,100);
 		}

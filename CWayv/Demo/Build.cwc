@@ -9,3 +9,5 @@
 -#Copy src_(Demo)/RcExe _out/{_sPlatform}_{_sOpt}/Rc/
 >
 -o obj/cpp_{_sPlatform}_{_sOpt}/ -#To _out/{_sPlatform}_{_sOpt}/App.*  -{vPreloadRc} 
+>
+-#Run
