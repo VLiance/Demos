@@ -20,6 +20,7 @@ package  {
 	import Demo.Screen.DemoText;
 	
 	import GZ.Gpu.ShaderModel.GzModel.GzShModel;
+	import GZ.Gpu.ShaderModel.GzModel.GzShModel_Minimal;
 	import GZ.Gpu.ShaderModel.GzModel.GzShModel_Quad;
 	import GZ.Gpu.ShaderModel.GzModel.GzShModel_Raymarching;
 	import GZ.Gpu.ShaderModel.GzModel.GzShModel_Shadertoy;
@@ -71,6 +72,7 @@ package  {
 			//Debug = new Debug();
 			//Lib_GZ::Sys::Debug::SetInst(oMain->thread) = Lib_GZ::Sys::Debug::Get(oMain->thread)->New(oMain.get()).get();
 	
+	
 			Debug.fTrace("!!!!!!!!!!!!!MainInterface!!!!");
 			
 			//bGpuDraw = false;
@@ -95,6 +97,7 @@ package  {
 		
 		override public function fLoadShader():Bool {
 			oGzShModel = new GzShModel_Quad();
+			//oGzShModel = new GzShModel_Minimal();
 			//oGzShModel = new GzShModel_Shadertoy();
 			return true;
 		}
