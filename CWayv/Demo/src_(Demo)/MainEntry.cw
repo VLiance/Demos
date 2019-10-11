@@ -84,7 +84,7 @@ import Demo.Test;
 		
 		destructor  {
 			<cpp>
-				printf("\nDestroy");
+				printf("\nDestroy !!!!!!!MainEntry!!!!!");
 				
 			</cpp>
 		}
